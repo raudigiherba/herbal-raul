@@ -1,0 +1,464 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Football News 2024
+  </title>
+  
+  <style>
+   body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .header {
+            position: absolute; 
+            top: 0; 
+            width: 100%; 
+            background-color: rgba(0, 0, 0, 0.733); 
+            color: white; 
+            text-align: center; 
+            padding: 10px 0; 
+            z-index: 10; 
+        }
+        .header img {
+            width: 50px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        .header nav {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .header nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .header .login {
+            text-decoration: none;
+            position: absolute;
+            color: #fff;
+            right: 20px;
+            top: 25px;
+            font-weight: bold;
+            
+        }
+        .image-container {
+            width: 100%; 
+            height: auto;
+            position: relative; 
+        }
+
+        .image-container img {
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            }
+
+        .main-banner h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .main-banner h2 {
+            font-size: 30px;
+            margin: 0;
+        }
+        .section {
+            background-color: #f0f0f0;
+            color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+        .section h2 {
+            margin: 0 0 20px;
+        }
+        .news {
+    display: flex;
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    scroll-snap-type: x mandatory; /* Mengaktifkan snap horizontal */
+    gap: 20px; /* Memberikan jarak antar item */
+    padding: 20px 0; /* Memberikan padding untuk area scroll */
+}
+
+.news-item {
+    flex: 0 0 auto; /* Memastikan setiap item tidak menyusut */
+    width: 400px; /* Atur lebar item berita */
+    scroll-snap-align: center; /* Setiap item akan snap di tengah */
+    background-color: #fff; /* Warna latar belakang item */
+    border-radius: 10px; /* Membuat sudut membulat */
+    padding: 10px;
+    text-align: center;
+}
+
+.news::-webkit-scrollbar {
+    height: 8px;
+}
+
+.news::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.news::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+
+        .news-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .news-item p, .schedule-item p {
+            margin: 10px 0 0;
+        }
+        .table-section {
+            background-image: url(Home2.png);
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .table-section h2 {
+            margin: 0 0 20px;
+        }
+        .table-section img {
+            width: 100px;
+            margin-bottom: 20px;
+            
+        }
+        .table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            border-collapse: collapse;
+            text-align: center
+        }
+        .table th, .table td {
+            border: 1px solid #fff;
+            padding: 10px;
+        }
+        .table th {
+            background-color: #333;
+        }
+
+        .carousel-container {
+     position: relative;
+     max-width: 800px;
+     margin: 0 auto;
+     overflow: hidden;
+ }
+ 
+ .carousel {
+     display: flex;
+     transition: transform 0.5s ease;
+ }
+ 
+ .carousel table {
+     min-width: 100%;
+     flex-shrink: 0;
+ }
+ 
+ .carousel-button {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background-color: rgba(0, 0, 0, 0.5);
+     color: white;
+     border: none;
+     cursor: pointer;
+     padding: 10px;
+     z-index: 2;
+ }
+ 
+ .carousel-button.left {
+     left: 0;
+ }
+ 
+ .carousel-button.right {
+     right: 0;
+ }
+
+        .schedule {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .schedule-item {
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+            width: 500px;
+            height: 300px;
+            text-align: center;
+        }
+        .schedule-item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer img {
+            width: 50px;
+        }
+        @media (max-width: 768px) {
+            .news-item, .schedule-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+    <a href="index.html">
+        <img alt="Logo" height="50" src="Logo.png" width="50"/>
+    </a>
+   <nav>
+    <a href="index.html#berita">
+     BERITA TERBARU
+    </a>
+    <a href="index.html#table">
+     TABLES
+    </a>
+    <a href="index.html#jadwal">
+     JADWAL PERTANDINGAN
+    </a>
+   </nav>
+   <a class="login" href="login.html">
+    LOGIN
+   </a>
+  </header>
+    <div class="image-container">
+        <img src="Home1.png" alt="Banner">
+    </div>
+  <section class="section" id="berita">
+   <h2>
+    BERITA TERBARU
+   </h2>
+   <hr>
+   <div class="news" >
+    <a href="berita1.html" style="text-decoration: none; color: #000;">
+    <div class="news-item">
+     <img height="500" src="newsimg1.png" width="500"/>
+     <p style="margin: 20px;">
+      LIONEL MESSI RESMI DINOBATKAN SEBAGAI PEMAIN SEPAKBOLA TERBAIK DI DUNIA
+     </p>
+     <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+      25 OKTOBER 2024
+     </p>
+    </div>
+    </a>
+    <a href="berita2.html" style="text-decoration: none; color: #000;">
+    <div class="news-item">
+     <img height="500" src="newsimg2.png" width="500"/>
+     <p style="margin: 20px;">
+        HAALAND AKAN MINGGAT DARI <br> MANCHESTER CITY PADA MUSIM DEPAN?
+     </p>
+     <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+      23 OKTOBER 2024
+     </p>
+    </div>
+    </a>
+    <div class="news-item">
+     <img height="500" src="newsimg3.png" width="500"/>
+     <p style="margin: 20px;">
+      COLE PALMER MENJADI PEMAIN MUDA TERBAIK INGGRIS
+     </p>
+     <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+      21 OKTOBER 2024
+     </p>
+    </div>
+    <div class="news-item">
+     <img height="500" src="newsimg4.png" width="500"/>
+     <p style="margin: 20px;">
+      LAUTARO MARTINEZ BUKTIKAN DIRINYA MENJADI MONSTER BAGI LAWAN
+     </p>
+     <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+        19 OKTOBER 2024
+     </p>
+    </div>
+    <div class="news-item">
+        <img height="500" src="newsimg5.png" width="500"/>
+        <p style="margin: 20px;">
+            VIKTOR GYOKERES, SANG PENYERANG <br> NAIK DAUN INCARAN TIM BESAR
+        </p>
+        <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+         16 OKTOBER 2024
+        </p>
+       </div>
+       <div class="news-item">
+        <img height="500" src="newsimg6.png" width="500"/>
+        <p style="margin: 20px;">
+         THIBAUT COUTOIS ALAMI CIDERA, <br> BAGAIMANA NASIB REAL MADRID?
+        </p>
+        <p style="font-size: 12px; margin-top: 45px; font-weight: bold;">
+         13 OKTOBER 2024
+        </p>
+       </div>
+   </div>
+  </section>
+  <section class="table-section" id="table">
+    <h2>
+     TABLES TOP 10
+    </h2>
+    <hr width="45%">
+ 
+    <img id="table-image" alt="Logo" height="100" src="logotable1.png" width="100"/>
+    <div class="carousel-container">
+        <button class="carousel-button left">&#9664;</button>
+        <div class="carousel">
+            <table class="table" data-image="logotable1.png">
+                <thead>
+                    <tr>
+                        <th>POS</th><th>CLUB</th><th>GD</th><th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>FC Barcelona</td><td>62</td><td>48</td></tr>
+                    <tr><td>2</td><td>Real Madrid</td><td>59</td><td>45</td></tr>
+                    <tr><td>3</td><td>Atletico Madrid</td><td>55</td><td>42</td></tr>
+                    <tr><td>4</td><td>Atletico Bilbao</td><td>52</td><td>40</td></tr>
+                    <tr><td>5</td><td>Girona</td><td>51</td><td>39</td></tr>
+                    <tr><td>6</td><td>Villareal</td><td>48</td><td>35</td></tr>
+                    <tr><td>7</td><td>Real Betis</td><td>45</td><td>33</td></tr>
+                    <tr><td>8</td><td>Osasuna</td><td>44</td><td>31</td></tr>
+                    <tr><td>9</td><td>Mallorca</td><td>43</td><td>31</td></tr>
+                    <tr><td>10</td><td>Sevilla</td><td>41</td><td>28</td></tr>
+                </tbody>
+            </table>
+            <table class="table" data-image="logotable2.png">
+                <thead>
+                    <tr>
+                        <th>POS</th><th>CLUB</th><th>GD</th><th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Liverpool</td><td>59</td><td>46</td></tr>
+                    <tr><td>2</td><td>Manchester City</td><td>58</td><td>43</td></tr>
+                    <tr><td>3</td><td>Arsenal</td><td>54</td><td>40</td></tr>
+                    <tr><td>4</td><td>Manchester United</td><td>54</td><td>37</td></tr>
+                    <tr><td>5</td><td>Chelsea</td><td>52</td><td>35</td></tr>
+                    <tr><td>6</td><td>Aston Villa</td><td>45</td><td>34</td></tr>
+                    <tr><td>7</td><td>Liecester City</td><td>44</td><td>32</td></tr>
+                    <tr><td>8</td><td>West Ham United</td><td>43</td><td>31</td></tr>
+                    <tr><td>9</td><td>Everton</td><td>42</td><td>30</td></tr>
+                    <tr><td>10</td><td>Tottenham Hostpur</td><td>41</td><td>30</td></tr>
+                </tbody>
+            </table>
+            <table class="table" data-image="logotable3.png">
+                <thead>
+                    <tr>
+                        <th>POS</th><th>CLUB</th><th>GD</th><th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Inter Milan</td><td>52</td><td>52</td></tr>
+                    <tr><td>2</td><td>AC Milan</td><td>51</td><td>47</td></tr>
+                    <tr><td>3</td><td>Juventus</td><td>48</td><td>45</td></tr>
+                    <tr><td>4</td><td>SS Lazio</td><td>45</td><td>44</td></tr>
+                    <tr><td>5</td><td>Napoli</td><td>44</td><td>43</td></tr>
+                    <tr><td>6</td><td>Atalanta</td><td>42</td><td>41</td></tr>
+                    <tr><td>7</td><td>AS Roma</td><td>40</td><td>40</td></tr>
+                    <tr><td>8</td><td>Fiorentina</td><td>37</td><td>37</td></tr>
+                    <tr><td>9</td><td>Udinese</td><td>33</td><td>35</td></tr>
+                    <tr><td>10</td><td>Torino</td><td>30</td><td>33</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="carousel-button right">&#9654;</button>
+    </div>
+ </section>
+ 
+ <script>
+    const carousel = document.querySelector('.carousel');
+    const leftButton = document.querySelector('.carousel-button.left');
+    const rightButton = document.querySelector('.carousel-button.right');
+    const tableImage = document.getElementById('table-image');
+
+    let currentIndex = 0;
+
+    leftButton.addEventListener('click', () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        updateCarousel();
+    });
+
+    rightButton.addEventListener('click', () => {
+        const maxIndex = carousel.children.length - 1;
+        currentIndex = Math.min(currentIndex + 1, maxIndex);
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+
+        // Ganti gambar logo tabel berdasarkan data-image atribut pada tabel aktif
+        const activeTable = carousel.children[currentIndex];
+        const newImageSrc = activeTable.getAttribute('data-image');
+        tableImage.src = newImageSrc;
+    }
+</script>
+ 
+  </section>
+  <section class="section" id="jadwal">
+   <h2>
+    JADWAL PERTANDINGAN
+   </h2>
+   <hr>
+   <div class="schedule">
+    <a href="hg1.html">
+    <div class="schedule-item">
+     <img alt="jadwallaliga" src="jadwal.png"/>
+    </div>
+    </a>
+    <div class="schedule-item">
+     <img alt="jadwalPL" src="jadwal3.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwalSA" src="jadwal6.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwallaliga" src="jadwal1.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwalPL" src="jadwal4.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwalSA" src="jadwal7.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwallaliga" src="jadwal2.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwalPL" src="jadwal5.png"/>
+    </div>
+    <div class="schedule-item">
+     <img alt="jadwalSA" src="jadwal8.png"/>
+    </div>
+   </div>
+  </section>
+  <footer class="footer">
+   <img alt="Logo" height="50" src="Logo.png" width="50"/>
+   <p>
+    © 2024 ROYAL COURT. ALL RIGHTS RESERVED.
+   </p>
+   <p>
+    Contact us : footballnews@gmail.com
+   </p>
+  </footer>
+ </body>
+</html>
